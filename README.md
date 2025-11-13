@@ -1,38 +1,17 @@
-# copilot# Mobil Öncelikli Canlı Chat Destek Sistemi
+# Mobil Öncelikli Canlı Destek Chat Sistemi
 
-## Kurulum
+Prod-ready FastAPI backend + React + Tailwind frontend.
 
-### 1. Backend/Ana API (FastAPI + Postgres)
+Run locally:
 
-```bash
-docker-compose up --build
-```
-- API: http://localhost:8000
-- Sağlık kontrolü: http://localhost:8000/health
+1. Backend: `docker-compose up --build`
+2. Frontend: `cd frontend && npm install && npm start`
 
-### 2. Frontend (React + Tailwind)
+Environment variables (set in deployment):
+- DATABASE_URL
+- JWT_SECRET
+- ADMIN_OTP
+- MEDIA_ROOT (optional)
+- CORS_ORIGINS
 
-```bash
-cd frontend
-npm install
-npm start
-```
-- Uygulama: http://localhost:3000
-
-#### Önemli
-- Mobilde 320 piksel ve üzeri tüm ekranlarda responsive çalışır.
-- Demo giriş, chat ve admin panel hazır.
-- WebSocket bağlantısı, backend node ve portu `.env` veya koddan düzenlenebilir.
-- Tüm bağlantı ve işlemlerde minimum validation otomatik devrede.
-
-### 3. Test
-
-```bash
-pytest tests/
-```
-- Temel WebSocket ve auth testleri için.
-
----
-
-> Geliştirme ve sorunlar için [issues](https://github.com/btasarimambalaj-afk/copilot/issues) kanalını kullanabilirsiniz.
-> Sistem kurulduktan sonra isterseniz Telegram, Redis ve ileri entegrasyonlar eklenebilir.
+Deploy notes: Use Railway or Vercel for frontend. Use S3 for media in production.
